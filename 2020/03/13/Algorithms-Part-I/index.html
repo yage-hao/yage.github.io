@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo.jpg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yagehao.github.io","root":"/","scheme":"Mist","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12,"onmobile":true,"dimmer":true},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"6I1Q4ZQN9S","apiKey":"68f7ac164826289a9817db69b82e2dea","indexName":"blog","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Part I focuses on elementary data structures, sorting, and searching. Topics include union−find, binary search, stacks, queues, bags, insertion sort, selection sort, shellsort, quicksort, 3-way quicks">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithms, Part I">
+<meta property="og:url" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/index.html">
+<meta property="og:site_name" content="BLOG.">
+<meta property="og:description" content="Part I focuses on elementary data structures, sorting, and searching. Topics include union−find, binary search, stacks, queues, bags, insertion sort, selection sort, shellsort, quicksort, 3-way quicks">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/ConnectedComponents.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/Union.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/QuickFindCost.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/Quadratic.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/QuickUnion.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/QuickUnionUnion1.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/QuickUnionUnion2.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/QuickUnionCost.JPG">
+<meta property="article:published_time" content="2020-03-13T06:51:24.000Z">
+<meta property="article:modified_time" content="2020-03-25T13:24:53.240Z">
+<meta property="article:author" content="Grace">
+<meta property="article:tag" content="algorithms">
+<meta property="article:tag" content="data structure">
+<meta property="article:tag" content="notes">
+<meta property="article:tag" content="coursera">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/ConnectedComponents.JPG">
+
+<link rel="canonical" href="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>Algorithms, Part I | BLOG.</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">BLOG.</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-gallery">
+
+    <a href="/Gallery/" rel="section"><i class="fa fa-fw fa-image"></i>Gallery</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container"></div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
+</div>
+
+    
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://yagehao.github.io/2020/03/13/Algorithms-Part-I/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Grace">
+      <meta itemprop="description" content="塞翁失马，焉知非福。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="BLOG.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Algorithms, Part I
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-03-13 14:51:24" itemprop="dateCreated datePublished" datetime="2020-03-13T14:51:24+08:00">2020-03-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-25 21:24:53" itemprop="dateModified" datetime="2020-03-25T21:24:53+08:00">2020-03-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/computer-science/" itemprop="url" rel="index"><span itemprop="name">computer science</span></a>
+                </span>
+            </span>
+
+          
+            <div class="post-description">Part I focuses on elementary data structures, sorting, and searching. Topics include union−find, binary search, stacks, queues, bags, insertion sort, selection sort, shellsort, quicksort, 3-way quicksort, mergesort, heapsort, binary heaps, binary search trees, red−black trees, separate-chaining and linear-probing hash tables, Graham scan, and kd-trees.</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Steps to developing a usable algorithm.</p>
+<ul>
+<li>Model the problem.</li>
+<li>Find an algorithm to solve it.</li>
+<li>Fast enough? Fits in memory?</li>
+<li>If not, figure out why.</li>
+<li>Find a way to address the problem.</li>
+<li>Iterate until satisfied.</li>
+</ul>
+<hr>
+<hr>
+<h2 id="1-Union-find"><a href="#1-Union-find" class="headerlink" title="1. Union-find"></a>1. Union-find</h2><p><strong>并查集</strong>，用于解决<strong>动态连通性问题</strong>的算法。经典算法包括<strong>快速查找</strong>和<strong>快速合并</strong>。</p>
+<hr>
+<h3 id="1-1-Dynamic-connectivity"><a href="#1-1-Dynamic-connectivity" class="headerlink" title="1.1 Dynamic connectivity"></a>1.1 Dynamic connectivity</h3><p><strong>动态连通性问题</strong>: 对于给定的对象集合，高效地实现<strong>合并命令</strong>与<strong>连通查询</strong>的交叉混合。</p>
+<p>Given a set of N objects.</p>
+<ul>
+<li><strong>Union</strong> command: connect two objects.</li>
+<li>Find/<strong>connected</strong> query: is there a path connecting the two objects?</li>
+</ul>
+<h4 id="1-1-1-Modelling-the-objects"><a href="#1-1-1-Modelling-the-objects" class="headerlink" title="1.1.1. Modelling the objects"></a>1.1.1. Modelling the objects</h4><p>Name objects 0 to N-1.<br>使用整数作为数组索引号，便于快速访问每个对象的相关信息，同时略去与并查集问题不相关的许多细节。</p>
+<h4 id="1-1-2-Modelling-the-connections"><a href="#1-1-2-Modelling-the-connections" class="headerlink" title="1.1.2. Modelling the connections"></a>1.1.2. Modelling the connections</h4><p>“is connected to” is an <strong>equivalence relation</strong>:</p>
+<ul>
+<li>Reflexive: <em>p</em> is connected to <em>p</em>.</li>
+<li>Symmetric: if <em>p</em> is connected to <em>q</em>, then <em>q</em> is connected to <em>p</em>.</li>
+<li>Transitive: if <em>p</em> is connected to <em>q</em> and <em>q</em> is connected to <em>r</em>, then <em>p</em> is connected to <em>r</em>.</li>
+</ul>
+<p>拥有等价关系后，一个由对象和连接组成的集合就分裂为多个子集，这些子集叫连通分量。</p>
+<ul>
+<li>连通分量中的任意两个对象都是相连接的。</li>
+<li>连通分量中的对象不与连通分量之外的对象相连接。</li>
+</ul>
+<p><strong>Connected components</strong>: Maximal set of objects that are mutually connected.<br><img src="ConnectedComponents.JPG" alt=""></p>
+<h4 id="1-1-3-Implementing-the-operations"><a href="#1-1-3-Implementing-the-operations" class="headerlink" title="1.1.3. Implementing the operations"></a>1.1.3. Implementing the operations</h4><p>我们的算法通过维护连通分量来高效地应答接到的请求。</p>
+<ul>
+<li><strong>Find</strong> query: Check if two objects are in the same component.</li>
+<li><strong>Union</strong> command: Replace components containing two objects with their union. 将包含两个对象的分量替换为其并集。<br><img src="Union.JPG" alt=""></li>
+</ul>
+<h4 id="1-1-4-Union-find-data-type-API"><a href="#1-1-4-Union-find-data-type-API" class="headerlink" title="1.1.4. Union-find data type (API)"></a>1.1.4. Union-find data type (API)</h4><p>数据类型：为了解决问题，我们实现的方法的规范。<br>在典型Java模型中，我们创建一个叫UF的类，它包含两个方法：</p>
+<ul>
+<li>实现合并；</li>
+<li>实现连接查找，返回一个布尔量（逻辑变量，真或假）。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UF</span></span></span><br><span class="line"><span class="class">  <span class="title">UF</span>(<span class="title">int</span> <span class="title">N</span>) //<span class="title">initialize</span> <span class="title">a</span> <span class="title">union</span>-<span class="title">find</span> <span class="title">data</span> <span class="title">structure</span> <span class="title">with</span> <span class="title">N</span> <span class="title">objects</span> (0 <span class="title">to</span> <span class="title">N</span>-1)</span></span><br><span class="line"><span class="class">  <span class="title">void</span> <span class="title">union</span>(<span class="title">int</span> <span class="title">p</span>, <span class="title">int</span> <span class="title">q</span>) //<span class="title">add</span> <span class="title">connection</span> <span class="title">between</span> <span class="title">p</span> <span class="title">and</span> <span class="title">q</span></span></span><br><span class="line"><span class="class">  <span class="title">boolean</span> <span class="title">connected</span>(<span class="title">int</span> <span class="title">p</span>, <span class="title">int</span> <span class="title">q</span>) //<span class="title">are</span> <span class="title">p</span> <span class="title">and</span> <span class="title">q</span> <span class="title">in</span> <span class="title">the</span> <span class="title">same</span> <span class="title">component</span>?</span></span><br><span class="line"><span class="class">  <span class="title">int</span> <span class="title">find</span>(<span class="title">int</span> <span class="title">p</span>) //<span class="title">component</span> <span class="title">identifier</span> <span class="title">for</span> <span class="title">p</span> (0 <span class="title">to</span> <span class="title">N</span>-1)</span></span><br><span class="line"><span class="class">  <span class="title">int</span> <span class="title">count</span>() //<span class="title">number</span> <span class="title">of</span> <span class="title">components</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-5-Dynamic-connectivity-client"><a href="#1-1-5-Dynamic-connectivity-client" class="headerlink" title="1.1.5. Dynamic-connectivity client"></a>1.1.5. Dynamic-connectivity client</h4><p>在处理更深层的问题之前，需要检查我们的应用编程接口（API），我们通过设计一个使用我们开发的数据类型的客户端来检查API。</p>
+<ul>
+<li>Read in number of objects N from standard input.</li>
+<li>Repeat:<ul>
+<li>read in pair of integers from standard input</li>
+<li>if they are not yet connected, connect them and print out pair</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> N = StdIn.readInt();</span><br><span class="line">  UF uf = <span class="keyword">new</span> UF(N);</span><br><span class="line">  <span class="keyword">while</span> (!StdIn.isEmpty())</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">int</span> p = StdIn.readInt();</span><br><span class="line">    <span class="keyword">int</span> q = StdIn.readInt();</span><br><span class="line">    <span class="keyword">if</span> (!uf.connected(p, q))</span><br><span class="line">    &#123;</span><br><span class="line">      uf.union(p, q);</span><br><span class="line">      StdOut.println(p + <span class="string">""</span> + q);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="1-2-Quick-find"><a href="#1-2-Quick-find" class="headerlink" title="1.2 Quick find"></a>1.2 Quick find</h3><p>快速查找是一种用于解决动态连通性问题的贪心算法(eager approach)。</p>
+<p><strong>Data structure</strong></p>
+<ul>
+<li>Integer array <strong>id[]</strong> of length N.</li>
+<li>Interpretation: <em>p</em> and <em>q</em> are connected iff they have the same <strong>id</strong>.</li>
+</ul>
+<p><strong>Find</strong><br>Check if <em>p</em> and <em>q</em> have the same <strong>id</strong>.</p>
+<p><strong>Union</strong><br>To merge components containing <em>p</em> and <em>q</em>, change all entries whose <strong>id</strong> equals <strong>id[p]</strong> to <strong>id[q]</strong>.</p>
+<h4 id="1-2-1-Java-implementation"><a href="#1-2-1-Java-implementation" class="headerlink" title="1.2.1 Java implementation"></a>1.2.1 Java implementation</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造器</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickFindUF</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="comment">//私有的整数数组：id数组</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] id;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//构造器创建了这个数组，并将对应索引的数组项设为索引值</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">QuickFindUF</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) <span class="comment">//set id of each object to itself (N array accesses)</span></span><br><span class="line">      id[i] = i;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//检查他们的id项是否相等并返回判断值</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">connected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span> <span class="comment">//check whether p and q are in the same component (2 array accesses)</span></span></span><br><span class="line"><span class="function">  </span>&#123; <span class="keyword">return</span> id[p] == id[q];  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//合并操作：遍寻整个数组，找到与第一个参数的id相等的id项，并把该项设为第二个参数的id项</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pid = id[p];</span><br><span class="line">    <span class="keyword">int</span> qid = id[q];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; id.length; i++) <span class="comment">//change all entries with id[p] to id[q] (at most 2N+2 array accesses)</span></span><br><span class="line">      <span class="keyword">if</span> (id[i] == pid) id[i] = qid;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-2-Cost"><a href="#1-2-2-Cost" class="headerlink" title="1.2.2 Cost"></a>1.2.2 Cost</h4><p><strong>Cost model</strong>: Number of array accesses (for read or write). 代码需要访问数组的次数。<br><img src="QuickFindCost.JPG" alt=""><br>Union is too expensive. 合并操作包含了扫描整个数组的for循环，所以它将以常数正比于N次访问数组。特别是如果在N个对象上进行N次合并操作，需要$N^2$的时间。<br>Quadratic algorithms do not scale with technology.<br><img src="Quadratic.JPG" alt=""></p>
+<hr>
+<h3 id="1-3-Quick-union"><a href="#1-3-Quick-union" class="headerlink" title="1.3 Quick union"></a>1.3 Quick union</h3><p>Lazy approach. 懒策略，尽量避免计算直到不得不进行计算。</p>
+<p><strong>Data structure</strong></p>
+<ul>
+<li>Integer array <strong>id[]</strong> of length N.</li>
+<li>Interpretation: id[i] is parent of i.</li>
+<li>Root of i is id[id[…id[i]…]].<br><img src="QuickUnion.JPG" alt=""></li>
+</ul>
+<p><strong>Find</strong><br>Check if <em>p</em> and <em>q</em> have the same root.</p>
+<p><strong>Union</strong><br>To merge components containing <em>p</em> and <em>q</em>, set the id of <em>p</em>‘s root to the id of <em>q</em>‘s root.<br><img src="QuickUnionUnion1.JPG" alt=""><br><img src="QuickUnionUnion2.JPG" alt=""></p>
+<h4 id="1-3-1-Java-implementation"><a href="#1-3-1-Java-implementation" class="headerlink" title="1.3.1 Java implementation"></a>1.3.1 Java implementation</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickUnionUF</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] id;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">QuickUnionUF</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    id = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) id[i] = i; <span class="comment">//set id of each object to itself (N array accesses)</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">root</span><span class="params">(<span class="keyword">int</span> i)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (i != id[i]) i = id[i]; <span class="comment">//chase parent pointers until reach root (depth of i array accesses)</span></span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">connected</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> root(p) == root(q); <span class="comment">//check if p and q have same root (depth of p and q array accesses)</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">union</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = root(p);</span><br><span class="line">    <span class="keyword">int</span> j = root(q);</span><br><span class="line">    id[i] = j; <span class="comment">//change root of p to point to root of q (depth of p and q array accesses)</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-2-Cost"><a href="#1-3-2-Cost" class="headerlink" title="1.3.2 Cost"></a>1.3.2 Cost</h4><p><img src="QuickUnionCost.JPG" alt=""></p>
+<ul>
+<li>Trees can get tall. 每个对象只是指向下一个节点，那么对叶子节点执行一次查找操作需要回溯整棵树。</li>
+<li>Find too expensive (could be N array accesses).</li>
+</ul>
+<hr>
+<h3 id="1-4-Improvements"><a href="#1-4-Improvements" class="headerlink" title="1.4 Improvements"></a>1.4 Improvements</h3><h4 id="1-4-1-Improvement-1-weighting"><a href="#1-4-1-Improvement-1-weighting" class="headerlink" title="1.4.1 Improvement 1: weighting"></a>1.4.1 Improvement 1: weighting</h4>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/algorithms/" rel="tag"># algorithms</a>
+              <a href="/tags/data-structure/" rel="tag"># data structure</a>
+              <a href="/tags/notes/" rel="tag"># notes</a>
+              <a href="/tags/coursera/" rel="tag"># coursera</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Union-find"><span class="nav-text">1. Union-find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Dynamic-connectivity"><span class="nav-text">1.1 Dynamic connectivity</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-1-Modelling-the-objects"><span class="nav-text">1.1.1. Modelling the objects</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-2-Modelling-the-connections"><span class="nav-text">1.1.2. Modelling the connections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-3-Implementing-the-operations"><span class="nav-text">1.1.3. Implementing the operations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-4-Union-find-data-type-API"><span class="nav-text">1.1.4. Union-find data type (API)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-5-Dynamic-connectivity-client"><span class="nav-text">1.1.5. Dynamic-connectivity client</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-Quick-find"><span class="nav-text">1.2 Quick find</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-1-Java-implementation"><span class="nav-text">1.2.1 Java implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-2-Cost"><span class="nav-text">1.2.2 Cost</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Quick-union"><span class="nav-text">1.3 Quick union</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-Java-implementation"><span class="nav-text">1.3.1 Java implementation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-Cost"><span class="nav-text">1.3.2 Cost</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Improvements"><span class="nav-text">1.4 Improvements</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-1-Improvement-1-weighting"><span class="nav-text">1.4.1 Improvement 1: weighting</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Grace"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Grace</p>
+  <div class="site-description" itemprop="description">塞翁失马，焉知非福。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yagehao" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yagehao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/yage.hao" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;yage.hao" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yage Hao</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> v7.7.2
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e69f087ebf9fc7d" async="async"></script>
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
