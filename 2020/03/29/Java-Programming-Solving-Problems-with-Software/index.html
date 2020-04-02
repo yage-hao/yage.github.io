@@ -29,13 +29,16 @@
 <meta property="og:site_name" content="BLOG.">
 <meta property="og:description" content="Learn to code in Java and improve your programming and problem-solving skills. You will learn to design algorithms as well as develop and debug programs. Using custom open-source classes, you will wri">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/29/Java-Programming-Solving-Problems-with-Software/Variables.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/29/Java-Programming-Solving-Problems-with-Software/MathematicalOperators.JPG">
 <meta property="article:published_time" content="2020-03-29T10:50:56.000Z">
-<meta property="article:modified_time" content="2020-03-29T10:54:12.243Z">
+<meta property="article:modified_time" content="2020-04-02T14:56:44.353Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="coursera">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yagehao.github.io/2020/03/29/Java-Programming-Solving-Problems-with-Software/Variables.JPG">
 
 <link rel="canonical" href="http://yagehao.github.io/2020/03/29/Java-Programming-Solving-Problems-with-Software/">
 
@@ -218,10 +221,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-29 18:50:56 / Modified: 18:54:12" itemprop="dateCreated datePublished" datetime="2020-03-29T18:50:56+08:00">2020-03-29</time>
+              <time title="Created: 2020-03-29 18:50:56" itemprop="dateCreated datePublished" datetime="2020-03-29T18:50:56+08:00">2020-03-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-04-02 22:56:44" itemprop="dateModified" datetime="2020-04-02T22:56:44+08:00">2020-04-02</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -244,7 +253,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h3 id="1-Fundamental-Java-Syntax-and-Semantics"><a href="#1-Fundamental-Java-Syntax-and-Semantics" class="headerlink" title="1. Fundamental Java Syntax and Semantics"></a>1. Fundamental Java Syntax and Semantics</h3><h4 id="1-1-Variables-and-Mathematical-Operators"><a href="#1-1-Variables-and-Mathematical-Operators" class="headerlink" title="1.1 Variables and Mathematical Operators"></a>1.1 Variables and Mathematical Operators</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//create variables and initialize them</span></span><br><span class="line"><span class="keyword">int</span> x = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span> y = x + <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> z = y - x;</span><br></pre></td></tr></table></figure>
+<p><img src="Variables.JPG" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x; <span class="comment">//declaration of int variable, x</span></span><br><span class="line">x = <span class="number">4</span> + <span class="number">3</span> * <span class="number">2</span>; <span class="comment">//initialize x</span></span><br><span class="line"><span class="keyword">int</span> y = x - <span class="number">6</span>;</span><br><span class="line">x = x * y;</span><br></pre></td></tr></table></figure>
+<p><img src="MathematicalOperators.JPG" alt=""></p>
+<p><strong>%</strong> is the modulus operator.</p>
+<hr>
+<h4 id="1-2-Functions-and-Conditionals"><a href="#1-2-Functions-and-Conditionals" class="headerlink" title="1.2 Functions and Conditionals"></a>1.2 Functions and Conditionals</h4><p><strong>Functions</strong><br>Java doesn’t have functions. It has methods since all codes in Java are inside the objects.</p>
+<p>“<strong>main</strong>“ method, where programs start when we run them outside the BlueJ.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//assume for now we choose to call g from the BlueJ interface</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">myFunction</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> z = <span class="number">2</span> * x - y;</span><br><span class="line">  <span class="keyword">return</span> z * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">3</span> + myFunction(n, n+<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a;</span><br><span class="line">  a = myFunction(<span class="number">3</span>, <span class="number">7</span>); <span class="comment">//1. Create frame for called function</span></span><br><span class="line">                        <span class="comment">//2. Pass parameters: copy values into frame</span></span><br><span class="line">                        <span class="comment">//3. Note where to return when finished("call site")</span></span><br><span class="line">  <span class="keyword">int</span> b = f(a * a);</span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Conditionals</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; y)&#123;</span><br><span class="line">    System.out.println(<span class="string">"x &lt; y"</span>);</span><br><span class="line">    <span class="keyword">return</span> y + x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"x &gt;= y"</span>);</span><br><span class="line">    <span class="keyword">if</span> (x &gt; <span class="number">8</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> y + <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x - <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = f (<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">  <span class="keyword">int</span> b = f (a, <span class="number">5</span>);</span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="1-3-Classes-Types-and-For-Each-Loops"><a href="#1-3-Classes-Types-and-For-Each-Loops" class="headerlink" title="1.3 Classes, Types, and For Each Loops"></a>1.3 Classes, Types, and For Each Loops</h4>
     </div>
 
     
@@ -327,6 +349,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Fundamental-Java-Syntax-and-Semantics"><span class="nav-text">1. Fundamental Java Syntax and Semantics</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Variables-and-Mathematical-Operators"><span class="nav-text">1.1 Variables and Mathematical Operators</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Functions-and-Conditionals"><span class="nav-text">1.2 Functions and Conditionals</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-Classes-Types-and-For-Each-Loops"><span class="nav-text">1.3 Classes, Types, and For Each Loops</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
