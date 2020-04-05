@@ -31,8 +31,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yagehao.github.io/2020/03/29/Java-Programming-Solving-Problems-with-Software/Variables.JPG">
 <meta property="og:image" content="http://yagehao.github.io/2020/03/29/Java-Programming-Solving-Problems-with-Software/MathematicalOperators.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/03/29/Java-Programming-Solving-Problems-with-Software/ObjectOriented.JPG">
 <meta property="article:published_time" content="2020-03-29T10:50:56.000Z">
-<meta property="article:modified_time" content="2020-04-02T14:56:44.353Z">
+<meta property="article:modified_time" content="2020-04-04T13:48:59.283Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="coursera">
@@ -229,7 +230,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-02 22:56:44" itemprop="dateModified" datetime="2020-04-02T22:56:44+08:00">2020-04-02</time>
+                <time title="Modified: 2020-04-04 21:48:59" itemprop="dateModified" datetime="2020-04-04T21:48:59+08:00">2020-04-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,7 +267,9 @@
 <p><strong>Conditionals</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span> <span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x &lt; y)&#123;</span><br><span class="line">    System.out.println(<span class="string">"x &lt; y"</span>);</span><br><span class="line">    <span class="keyword">return</span> y + x;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"x &gt;= y"</span>);</span><br><span class="line">    <span class="keyword">if</span> (x &gt; <span class="number">8</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> y + <span class="number">7</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x - <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">g</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = f (<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">  <span class="keyword">int</span> b = f (a, <span class="number">5</span>);</span><br><span class="line">  <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h4 id="1-3-Classes-Types-and-For-Each-Loops"><a href="#1-3-Classes-Types-and-For-Each-Loops" class="headerlink" title="1.3 Classes, Types, and For Each Loops"></a>1.3 Classes, Types, and For Each Loops</h4>
+<h4 id="1-3-Classes-Types-and-For-Each-Loops"><a href="#1-3-Classes-Types-and-For-Each-Loops" class="headerlink" title="1.3 Classes, Types, and For Each Loops"></a>1.3 Classes, Types, and For Each Loops</h4><p>Object-oriented programming is a paradigm of programming languages that groups data, and the code that manipulates it, together into logical units called objects.<br><img src="ObjectOriented.JPG" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//declaration for a class called Point</span></span><br><span class="line"><span class="comment">//a class is a template to make objects</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//declaration of two fields: x and y</span></span><br><span class="line">  <span class="comment">//Field: a variable that is inside of an object, also known as instance variable.</span></span><br><span class="line">  <span class="comment">//Private means only code inside this class can directly manipulate these fields.</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> x;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> y;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//declaration of a constructor</span></span><br><span class="line">  <span class="comment">//A constructor specifies how to create objects of this class. It is code that gets run when an object is created to initialize that object. Note that the constructor looks like a function but has no return type. And is named the same as the class.</span></span><br><span class="line">  <span class="comment">//Public means any code can use this constructor to create a point.</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Point</span><span class="params">(<span class="keyword">int</span> startx, <span class="keyword">int</span> starty)</span> </span>&#123;</span><br><span class="line">    x = startx;</span><br><span class="line">    y = starty;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//declaration of three methods</span></span><br><span class="line">  <span class="comment">//methods are functions that inside of classes</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getX</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> x; &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getY</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> y; &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">distance</span><span class="params">(Point otherPt)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> dx = x - otherPt.getX();</span><br><span class="line">    <span class="keyword">int</span> dy = y - otherPt.getY();</span><br><span class="line">    <span class="keyword">return</span> Math.sqrt(dx * dx + dy * dy);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    Point p1 = <span class="keyword">new</span> Point (<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">    Point p2 = <span class="keyword">new</span> Point (<span class="number">6</span>,<span class="number">8</span>);</span><br><span class="line">    System.out.println(p1.distance(p2));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -289,7 +292,10 @@
     <a href="/2020/03/13/Algorithms-Part-I/" rel="prev" title="Algorithms, Part I">
       <i class="fa fa-chevron-left"></i> Algorithms, Part I
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/05/Svenska/" rel="next" title="Svenska">
+      Svenska <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -365,20 +371,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
