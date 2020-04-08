@@ -32,8 +32,11 @@
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/4Schools.JPG">
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/TuringTest.JPG">
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Application.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Foundation.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Agents.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/VacuumCleaner.JPG">
 <meta property="article:published_time" content="2020-04-06T11:22:08.000Z">
-<meta property="article:modified_time" content="2020-04-07T02:52:09.984Z">
+<meta property="article:modified_time" content="2020-04-08T15:02:28.269Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="AI">
@@ -231,7 +234,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-07 10:52:09" itemprop="dateModified" datetime="2020-04-07T10:52:09+08:00">2020-04-07</time>
+                <time title="Modified: 2020-04-08 23:02:28" itemprop="dateModified" datetime="2020-04-08T23:02:28+08:00">2020-04-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -317,6 +320,78 @@
 </li>
 </ul>
 <p><img src="Application.JPG" alt=""></p>
+<h4 id="1-3-AI-Foundation-and-History"><a href="#1-3-AI-Foundation-and-History" class="headerlink" title="1.3 AI Foundation and History"></a>1.3 AI Foundation and History</h4><p><img src="Foundation.JPG" alt=""></p>
+<ul>
+<li><p>AI resources:</p>
+<ul>
+<li>Journals/Conferences: JAIR, TPAMI, JMLR, IJCAI, AAAI, IAAI, CVPR, ECAI, ICML, NIPS, etc.</li>
+<li>Video lectures: <a href="http://videolectures.net/Top/Computer_Science/Artificial_Intelligence/" target="_blank" rel="noopener">http://videolectures.net/Top/Computer_Science/Artificial_Intelligence/</a></li>
+</ul>
+</li>
+<li><p>History of AI:</p>
+<ul>
+<li>1940-1950: Gestation of AI</li>
+<li>1950-1970: Early enthusiasm, great expectations</li>
+<li>1970-1990: Knowledge-based AI</li>
+<li>1990-present: Scientific approaches</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-Intelligent-Agents"><a href="#2-Intelligent-Agents" class="headerlink" title="2. Intelligent Agents"></a>2. Intelligent Agents</h3><h4 id="2-1-Intelligent-Agents"><a href="#2-1-Intelligent-Agents" class="headerlink" title="2.1 Intelligent Agents"></a>2.1 Intelligent Agents</h4><ul>
+<li><strong>Agent</strong>: An agent is anything that can be viewed as:<ul>
+<li><strong>perceiving</strong> its <strong>environment</strong> through <strong>sensors</strong> and</li>
+<li><strong>acting</strong> upon that <strong>environment</strong> through <strong>actuators</strong>.<br><img src="Agents.JPG" alt=""></li>
+</ul>
+</li>
+<li>An agent programs runs in cycles of: <strong>perceive</strong>, <strong>think</strong> and <strong>act</strong>.</li>
+<li>Agent = <strong>Architecture</strong> (sensors &amp; actuators) + <strong>Program</strong></li>
+</ul>
+<ul>
+<li>Example: Vacuum cleaner<ul>
+<li>Percepts: location and contents e.g., [A, Dirty]</li>
+<li>Actions: Left, Right, Suck, NoOp</li>
+<li>Agent function: mapping from percepts to actions.<br><img src="VacuumCleaner.JPG" alt=""></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Rational Agent</strong>:<br>For each possible percept sequence, a rational agent should select an action that is expected to maximize its <strong>performance measure</strong>, given the evidence provided by the <strong>percept sequence</strong> and whatever built-in <strong>knowledge</strong> the agent has.</li>
+</ul>
+<h4 id="2-2-“PEAS”"><a href="#2-2-“PEAS”" class="headerlink" title="2.2 “PEAS”"></a>2.2 “PEAS”</h4><ul>
+<li>Define a rational agent under <strong>PEAS</strong>:<ul>
+<li><strong>Performance</strong>: The performance measure that defines the criterion of success.</li>
+<li><strong>Environment</strong>: The agent prior knowledge of the environment.</li>
+<li><strong>Actuators</strong>: The possible actions that the agent can perform.</li>
+<li><strong>Sensors</strong>: The agent’s percept sequence to date.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Example: PEAS for a self-driving car<ul>
+<li>Performance: Safety, time, legal drive, comfort.</li>
+<li>Environment: Roads, other cars, pedestrians, road signs.</li>
+<li>Actuators: Steering, accelerator, brake, signal, horn.</li>
+<li>Sensors: Camera, sonar, GPS, Speedometer, odometer, accelerometer, engine sensors, keyboard.</li>
+</ul>
+</li>
+<li>Example: PEAS for a vacuum cleaner<ul>
+<li>Performance: cleanness, efficiency: distance travelled to clean, battery life, security.</li>
+<li>Environment: room, table, wood floor, carpet, different obstacles.</li>
+<li>Actuators: wheels, different brushes, vacuum extractor.</li>
+<li>Sensors: camera, dirt detection sensor, cliff sensor, bump sensors, infrared wall sensors.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-3-Environment-types"><a href="#2-3-Environment-types" class="headerlink" title="2.3 Environment types"></a>2.3 Environment types</h4><ul>
+<li><strong>Fully observable vs. partially observable</strong> (完全可观察的与部分可观察的).</li>
+<li><strong>Deterministic vs. stochastic</strong> (确定的与随机的):<br>The next state of the environment is completely determined by the current state and the action executed by the agent. 下一个状态完全取决于当前状态和agent执行的操作。</li>
+<li><strong>Episodic vs. sequential</strong> (片段式的与延续式的):<br>The agent’s experience is divided into atomic “episodes” (each episode consists of the agent<br>perceiving and then performing a single action), and the choice of action in each episode depends only on the episode itself.</li>
+<li><strong>Static vs. dynamic</strong> (静态的与动态的):<br>The environment is <strong>semi-dynamic</strong> if the environment itself does not change with the passage of time but the agent’s performance score does.</li>
+<li><strong>Discrete vs. continuous</strong> (离散的与连续的).</li>
+<li><strong>Single agent vs. multi-agent</strong>.</li>
+<li><strong>Known vs. Unknown</strong>:<br>The designer of the agent may or may not have knowledge about the environment makeup. 设计人员的知识状态，环境的物理法则。</li>
+</ul>
 
     </div>
 
@@ -401,7 +476,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction-to-AI"><span class="nav-text">1. Introduction to AI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Overview-of-AI"><span class="nav-text">1.1 Overview of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Applications-of-AI"><span class="nav-text">1.2 Applications of AI</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction-to-AI"><span class="nav-text">1. Introduction to AI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Overview-of-AI"><span class="nav-text">1.1 Overview of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Applications-of-AI"><span class="nav-text">1.2 Applications of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-AI-Foundation-and-History"><span class="nav-text">1.3 AI Foundation and History</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intelligent-Agents"><span class="nav-text">2. Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Intelligent-Agents"><span class="nav-text">2.1 Intelligent Agents</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-“PEAS”"><span class="nav-text">2.2 “PEAS”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Environment-types"><span class="nav-text">2.3 Environment types</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
