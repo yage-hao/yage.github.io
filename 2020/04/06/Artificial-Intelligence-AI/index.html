@@ -35,8 +35,16 @@
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Foundation.JPG">
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Agents.JPG">
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/VacuumCleaner.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/SimpleReflex.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/ModelbasedReflex.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Goalbased.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Utilitybased.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/LearningAgent.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Atomic.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Factored.JPG">
+<meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Structured.JPG">
 <meta property="article:published_time" content="2020-04-06T11:22:08.000Z">
-<meta property="article:modified_time" content="2020-04-08T15:02:28.269Z">
+<meta property="article:modified_time" content="2020-04-09T04:54:43.203Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="AI">
@@ -234,7 +242,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-08 23:02:28" itemprop="dateModified" datetime="2020-04-08T23:02:28+08:00">2020-04-08</time>
+                <time title="Modified: 2020-04-09 12:54:43" itemprop="dateModified" datetime="2020-04-09T12:54:43+08:00">2020-04-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -338,7 +346,7 @@
 </li>
 </ul>
 <hr>
-<h3 id="2-Intelligent-Agents"><a href="#2-Intelligent-Agents" class="headerlink" title="2. Intelligent Agents"></a>2. Intelligent Agents</h3><h4 id="2-1-Intelligent-Agents"><a href="#2-1-Intelligent-Agents" class="headerlink" title="2.1 Intelligent Agents"></a>2.1 Intelligent Agents</h4><ul>
+<h3 id="2-Intelligent-Agents"><a href="#2-Intelligent-Agents" class="headerlink" title="2. Intelligent Agents"></a>2. Intelligent Agents</h3><h4 id="2-1-Intelligent-Agents"><a href="#2-1-Intelligent-Agents" class="headerlink" title="2.1 Intelligent Agents"></a>2.1 Intelligent Agents</h4><h5 id="2-1-1-Definition"><a href="#2-1-1-Definition" class="headerlink" title="2.1.1 Definition"></a>2.1.1 Definition</h5><ul>
 <li><strong>Agent</strong>: An agent is anything that can be viewed as:<ul>
 <li><strong>perceiving</strong> its <strong>environment</strong> through <strong>sensors</strong> and</li>
 <li><strong>acting</strong> upon that <strong>environment</strong> through <strong>actuators</strong>.<br><img src="Agents.JPG" alt=""></li>
@@ -358,7 +366,7 @@
 <ul>
 <li><strong>Rational Agent</strong>:<br>For each possible percept sequence, a rational agent should select an action that is expected to maximize its <strong>performance measure</strong>, given the evidence provided by the <strong>percept sequence</strong> and whatever built-in <strong>knowledge</strong> the agent has.</li>
 </ul>
-<h4 id="2-2-“PEAS”"><a href="#2-2-“PEAS”" class="headerlink" title="2.2 “PEAS”"></a>2.2 “PEAS”</h4><ul>
+<h4 id="2-1-2-“PEAS”"><a href="#2-1-2-“PEAS”" class="headerlink" title="2.1.2 “PEAS”"></a>2.1.2 “PEAS”</h4><ul>
 <li>Define a rational agent under <strong>PEAS</strong>:<ul>
 <li><strong>Performance</strong>: The performance measure that defines the criterion of success.</li>
 <li><strong>Environment</strong>: The agent prior knowledge of the environment.</li>
@@ -383,7 +391,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="2-3-Environment-types"><a href="#2-3-Environment-types" class="headerlink" title="2.3 Environment types"></a>2.3 Environment types</h4><ul>
+<h4 id="2-1-3-Environment-types"><a href="#2-1-3-Environment-types" class="headerlink" title="2.1.3 Environment types"></a>2.1.3 Environment types</h4><ul>
 <li><strong>Fully observable vs. partially observable</strong> (完全可观察的与部分可观察的).</li>
 <li><strong>Deterministic vs. stochastic</strong> (确定的与随机的):<br>The next state of the environment is completely determined by the current state and the action executed by the agent. 下一个状态完全取决于当前状态和agent执行的操作。</li>
 <li><strong>Episodic vs. sequential</strong> (片段式的与延续式的):<br>The agent’s experience is divided into atomic “episodes” (each episode consists of the agent<br>perceiving and then performing a single action), and the choice of action in each episode depends only on the episode itself.</li>
@@ -392,6 +400,62 @@
 <li><strong>Single agent vs. multi-agent</strong>.</li>
 <li><strong>Known vs. Unknown</strong>:<br>The designer of the agent may or may not have knowledge about the environment makeup. 设计人员的知识状态，环境的物理法则。</li>
 </ul>
+<h4 id="2-2-Types-of-Intelligent-Agents"><a href="#2-2-Types-of-Intelligent-Agents" class="headerlink" title="2.2 Types of Intelligent Agents"></a>2.2 Types of Intelligent Agents</h4><h5 id="2-2-1-Types-of-Intelligent-Agents"><a href="#2-2-1-Types-of-Intelligent-Agents" class="headerlink" title="2.2.1 Types of Intelligent Agents"></a>2.2.1 Types of Intelligent Agents</h5><ul>
+<li>4 basic types in order of increasing generality:<ul>
+<li><strong>Simple reflex</strong> agents</li>
+<li><strong>Model-based reflex</strong> agents</li>
+<li><strong>Goal-based</strong> agents</li>
+<li><strong>Utility-based</strong> agents</li>
+</ul>
+</li>
+<li>All of which can be generalized into <strong>learning</strong> agents that can improve their performance and generate better actions.</li>
+</ul>
+<ul>
+<li><strong>Simple reflex</strong> agents:<ul>
+<li>Select an action based on the <strong>current state</strong> only, ignoring the percept history.</li>
+<li>Limited.</li>
+<li>Only work if the environment is <strong>fully observable</strong>, the correct action is based on the current percept only.<br><img src="SimpleReflex.JPG" alt=""></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Model-based reflex</strong> agents<ul>
+<li><strong>Handle partial observability</strong> by keeping track of the part of the world it can’t see now.</li>
+<li><strong>Internal state</strong> depending on the percept history (best guess). 根据感知历史维持内部状态。</li>
+<li><strong>Model of the world</strong> based on (1) how the world evolves independently from the agent, and (2) how the agent actions affects the world.<br><img src="ModelbasedReflex.JPG" alt=""></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Goal-based</strong> agents<ul>
+<li>Agent program combines the <strong>goal information</strong> with the environment model to choose the actions that achieve that goal.</li>
+<li><strong>Flexible</strong> as knowledge supporting the decisions is explicitly represented and can be modified.<br><img src="Goalbased.JPG" alt=""></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Utility-based</strong> agents<ul>
+<li>A utility function is the agent’s <strong>performance measure</strong>.</li>
+<li>Because of the uncertainty in the world, a utility agent choses the action that maximizes the expected utility.<br><img src="Utilitybased.JPG" alt=""></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>4 conceptual components of <strong>Learning</strong> agents:<ul>
+<li><strong>Learning element</strong>: responsible for making improvements.</li>
+<li><strong>Performance element</strong>: responsible for selecting external actions. It is what we considered as agent so far.</li>
+<li><strong>Critic</strong>: How well is the agent is doing w.r.t. a fixed performance standard.</li>
+<li><strong>Problem generator</strong>: allows the agent to explore.<br><img src="LearningAgent.JPG" alt=""></li>
+</ul>
+</li>
+</ul>
+<h5 id="2-2-2-Agents-Organization"><a href="#2-2-2-Agents-Organization" class="headerlink" title="2.2.2 Agents Organization"></a>2.2.2 Agents Organization</h5><p>Agent internal states can be represented in different ways:</p>
+<ul>
+<li><strong>Atomic</strong> representation: Each state of the world is a black-box that has no internal structure.<br><em>AI algorithms: search, games, Markov decision processes, hidden Markov models, etc.</em><br><img src="Atomic.JPG" alt=""></li>
+<li><strong>Factored</strong> representation: Each state has some attribute-value properties.<br><em>AI algorithms: constraint satisfaction, and Bayesian networks.</em><br><img src="Factored.JPG" alt=""></li>
+<li><strong>Structured</strong> representation: Relationships between the objects of a state can be explicitly expressed.<br><em>AI algorithms: first order logic, knowledge-based learning, natural language understanding.</em><br><img src="Structured.JPG" alt=""></li>
+</ul>
+<hr>
 
     </div>
 
@@ -476,7 +540,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction-to-AI"><span class="nav-text">1. Introduction to AI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Overview-of-AI"><span class="nav-text">1.1 Overview of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Applications-of-AI"><span class="nav-text">1.2 Applications of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-AI-Foundation-and-History"><span class="nav-text">1.3 AI Foundation and History</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intelligent-Agents"><span class="nav-text">2. Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Intelligent-Agents"><span class="nav-text">2.1 Intelligent Agents</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-“PEAS”"><span class="nav-text">2.2 “PEAS”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-Environment-types"><span class="nav-text">2.3 Environment types</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction-to-AI"><span class="nav-text">1. Introduction to AI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Overview-of-AI"><span class="nav-text">1.1 Overview of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Applications-of-AI"><span class="nav-text">1.2 Applications of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-AI-Foundation-and-History"><span class="nav-text">1.3 AI Foundation and History</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intelligent-Agents"><span class="nav-text">2. Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Intelligent-Agents"><span class="nav-text">2.1 Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-Definition"><span class="nav-text">2.1.1 Definition</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2-“PEAS”"><span class="nav-text">2.1.2 “PEAS”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-3-Environment-types"><span class="nav-text">2.1.3 Environment types</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Types-of-Intelligent-Agents"><span class="nav-text">2.2 Types of Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-Types-of-Intelligent-Agents"><span class="nav-text">2.2.1 Types of Intelligent Agents</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-Agents-Organization"><span class="nav-text">2.2.2 Agents Organization</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
