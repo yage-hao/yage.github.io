@@ -44,7 +44,7 @@
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Factored.JPG">
 <meta property="og:image" content="http://yagehao.github.io/2020/04/06/Artificial-Intelligence-AI/Structured.JPG">
 <meta property="article:published_time" content="2020-04-06T11:22:08.000Z">
-<meta property="article:modified_time" content="2020-04-09T06:18:46.366Z">
+<meta property="article:modified_time" content="2020-04-19T07:31:11.136Z">
 <meta property="article:author" content="Grace">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="AI">
@@ -242,7 +242,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-04-09 14:18:46" itemprop="dateModified" datetime="2020-04-09T14:18:46+08:00">2020-04-09</time>
+                <time title="Modified: 2020-04-19 15:31:11" itemprop="dateModified" datetime="2020-04-19T15:31:11+08:00">2020-04-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -346,7 +346,8 @@
 </li>
 </ul>
 <hr>
-<h3 id="2-Intelligent-Agents"><a href="#2-Intelligent-Agents" class="headerlink" title="2. Intelligent Agents"></a>2. Intelligent Agents</h3><h4 id="2-1-Intelligent-Agents"><a href="#2-1-Intelligent-Agents" class="headerlink" title="2.1 Intelligent Agents"></a>2.1 Intelligent Agents</h4><h5 id="2-1-1-Definition"><a href="#2-1-1-Definition" class="headerlink" title="2.1.1 Definition"></a>2.1.1 Definition</h5><ul>
+<hr>
+<h3 id="2-Intelligent-Agents-and-Uniformed-Search"><a href="#2-Intelligent-Agents-and-Uniformed-Search" class="headerlink" title="2. Intelligent Agents and Uniformed Search"></a>2. Intelligent Agents and Uniformed Search</h3><h4 id="2-1-Intelligent-Agents"><a href="#2-1-Intelligent-Agents" class="headerlink" title="2.1 Intelligent Agents"></a>2.1 Intelligent Agents</h4><h5 id="2-1-1-Intelligent-Agents"><a href="#2-1-1-Intelligent-Agents" class="headerlink" title="2.1.1 Intelligent Agents"></a>2.1.1 Intelligent Agents</h5><ul>
 <li><strong>Agent</strong>: An agent is anything that can be viewed as:<ul>
 <li><strong>perceiving</strong> its <strong>environment</strong> through <strong>sensors</strong> and</li>
 <li><strong>acting</strong> upon that <strong>environment</strong> through <strong>actuators</strong>.<br><img src="Agents.JPG" alt=""></li>
@@ -366,7 +367,7 @@
 <ul>
 <li><strong>Rational Agent</strong>:<br>For each possible percept sequence, a rational agent should select an action that is expected to maximize its <strong>performance measure</strong>, given the evidence provided by the <strong>percept sequence</strong> and whatever built-in <strong>knowledge</strong> the agent has.</li>
 </ul>
-<h5 id="2-1-2-“PEAS”"><a href="#2-1-2-“PEAS”" class="headerlink" title="2.1.2 “PEAS”"></a>2.1.2 “PEAS”</h5><ul>
+<ul>
 <li>Define a rational agent under <strong>PEAS</strong>:<ul>
 <li><strong>Performance</strong>: The performance measure that defines the criterion of success.</li>
 <li><strong>Environment</strong>: The agent prior knowledge of the environment.</li>
@@ -391,16 +392,19 @@
 </ul>
 </li>
 </ul>
-<h5 id="2-1-3-Environment-types"><a href="#2-1-3-Environment-types" class="headerlink" title="2.1.3 Environment types"></a>2.1.3 Environment types</h5><ul>
+<ul>
+<li><strong>Environment types</strong><ul>
 <li><strong>Fully observable vs. partially observable</strong> (完全可观察的与部分可观察的).</li>
 <li><strong>Deterministic vs. stochastic</strong> (确定的与随机的):<br>The next state of the environment is completely determined by the current state and the action executed by the agent. 下一个状态完全取决于当前状态和agent执行的操作。</li>
-<li><strong>Episodic vs. sequential</strong> (片段式的与延续式的):<br>The agent’s experience is divided into atomic “episodes” (each episode consists of the agent<br>perceiving and then performing a single action), and the choice of action in each episode depends only on the episode itself.</li>
+<li><strong>Episodic vs. sequential</strong> (片段式的与延续式的):<br>The agent’s experience is divided into atomic “episodes” (each episode consists of the agent perceiving and then performing a single action), and the choice of action in each episode depends only on the episode itself.</li>
 <li><strong>Static vs. dynamic</strong> (静态的与动态的):<br>The environment is <strong>semi-dynamic</strong> if the environment itself does not change with the passage of time but the agent’s performance score does.</li>
 <li><strong>Discrete vs. continuous</strong> (离散的与连续的).</li>
 <li><strong>Single agent vs. multi-agent</strong>.</li>
 <li><strong>Known vs. Unknown</strong>:<br>The designer of the agent may or may not have knowledge about the environment makeup. 设计人员的知识状态，环境的物理法则。</li>
 </ul>
-<h4 id="2-2-Types-of-Intelligent-Agents"><a href="#2-2-Types-of-Intelligent-Agents" class="headerlink" title="2.2 Types of Intelligent Agents"></a>2.2 Types of Intelligent Agents</h4><h5 id="2-2-1-Types-of-Intelligent-Agents"><a href="#2-2-1-Types-of-Intelligent-Agents" class="headerlink" title="2.2.1 Types of Intelligent Agents"></a>2.2.1 Types of Intelligent Agents</h5><ul>
+</li>
+</ul>
+<h5 id="2-1-2-Types-of-Intelligent-Agents"><a href="#2-1-2-Types-of-Intelligent-Agents" class="headerlink" title="2.1.2 Types of Intelligent Agents"></a>2.1.2 Types of Intelligent Agents</h5><ul>
 <li>4 basic types in order of increasing generality:<ul>
 <li><strong>Simple reflex</strong> agents</li>
 <li><strong>Model-based reflex</strong> agents</li>
@@ -449,12 +453,98 @@
 </ul>
 </li>
 </ul>
-<h5 id="2-2-2-Agents-Organization"><a href="#2-2-2-Agents-Organization" class="headerlink" title="2.2.2 Agents Organization"></a>2.2.2 Agents Organization</h5><p>Agent internal states can be represented in different ways:</p>
 <ul>
-<li><strong>Atomic</strong> representation: Each state of the world is a black-box that has no internal structure.<br><em>AI algorithms: search, games, Markov decision processes, hidden Markov models, etc.</em><br><img src="Atomic.JPG" alt=""></li>
-<li><strong>Factored</strong> representation: Each state has some attribute-value properties.<br><em>AI algorithms: constraint satisfaction, and Bayesian networks.</em><br><img src="Factored.JPG" alt=""></li>
-<li><strong>Structured</strong> representation: Relationships between the objects of a state can be explicitly expressed.<br><em>AI algorithms: first order logic, knowledge-based learning, natural language understanding.</em><br><img src="Structured.JPG" alt=""></li>
+<li><strong>Agents Organization</strong><br>Agent internal states can be represented in different ways:<ul>
+<li><strong>Atomic</strong> representation: Each state of the world is a black-box that has no internal structure.</li>
 </ul>
+<em>AI algorithms: search, games, Markov decision processes, hidden Markov models, etc.</em><br><img src="Atomic.JPG" alt=""><ul>
+<li><strong>Factored</strong> representation: Each state has some attribute-value properties.</li>
+</ul>
+<em>AI algorithms: constraint satisfaction, and Bayesian networks.</em><br><img src="Factored.JPG" alt=""><ul>
+<li><strong>Structured</strong> representation: Relationships between the objects of a state can be explicitly expressed.</li>
+</ul>
+<em>AI algorithms: first order logic, knowledge-based learning, natural language understanding.</em><br><img src="Structured.JPG" alt=""></li>
+</ul>
+<hr>
+<h4 id="2-2-Search-Agents"><a href="#2-2-Search-Agents" class="headerlink" title="2.2 Search Agents"></a>2.2 Search Agents</h4><h5 id="2-2-1-Search-Agents"><a href="#2-2-1-Search-Agents" class="headerlink" title="2.2.1 Search Agents"></a>2.2.1 Search Agents</h5><ul>
+<li>Search agent is a <strong>goal-based</strong> agent:<ul>
+<li>Agents consider the <strong>impact of actions</strong> on future <strong>states</strong>.</li>
+<li>Agent’s job is to identify the action or <strong>series of actions</strong> that lead to the goal.</li>
+<li>A search through possible solutions.</li>
+<li><em>Example: mazes, the 8-queen problem, route finding problem, travelling salesperson problem, VLSI layout, robot navigation, automatic assembly sequencing, protein design.</em></li>
+</ul>
+</li>
+</ul>
+<h5 id="2-2-2-Examples-of-Problem-Formulation"><a href="#2-2-2-Examples-of-Problem-Formulation" class="headerlink" title="2.2.2 Examples of Problem Formulation"></a>2.2.2 Examples of Problem Formulation</h5><ul>
+<li><strong>Define</strong> the problem through:<ul>
+<li>Goal formulation</li>
+<li>Problem formulation</li>
+</ul>
+</li>
+<li><strong>Solving</strong> the problem as a 2-stage process:<ul>
+<li><strong>Search</strong>: “mental” or “offline” exploration of several possibilities</li>
+<li><strong>Execute</strong> the solution found</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Problem formulation</strong><ul>
+<li><strong>Initial state</strong>: the state in which the agent starts.</li>
+<li><strong>States</strong>: All states reachable from the initial state by any sequence of actions. (<strong>State space</strong>)</li>
+<li><strong>Actions</strong>: possible actions available to the agent. At a state <strong><em>s, Actions(s)</em></strong> returns the set of actions that can be executed in state s. (<strong>Action space</strong>)</li>
+<li><strong>Transition model</strong>: A description of what each action does <strong><em>Results(s; a)</em></strong>.</li>
+<li><strong>Goal test</strong>: determines if a given state is a goal state.</li>
+<li><strong>Path cost</strong>: function that assigns a numeric cost to a path w.r.t. <strong>performance measure</strong>.</li>
+</ul>
+</li>
+</ul>
+<h5 id="2-2-3-State-Space-vs-Search-Space"><a href="#2-2-3-State-Space-vs-Search-Space" class="headerlink" title="2.2.3 State Space vs. Search Space"></a>2.2.3 State Space vs. Search Space</h5><ul>
+<li><strong>Search space</strong>: an abstract configuration represented by a <strong>search tree</strong> or <strong>graph</strong> of possible solutions.</li>
+</ul>
+<ul>
+<li><strong>Search tree</strong>: models the sequence of actions<ul>
+<li>Root: initial state</li>
+<li>Branches: actions</li>
+<li>Nodes: results from actions. A node has: parent, children, depth, path cost, associated state in the state space.</li>
+</ul>
+</li>
+<li><strong>Expand</strong>: A function that give a node, creates all children nodes.</li>
+</ul>
+<ul>
+<li>The search space is divided into <strong>three regions</strong>:<ul>
+<li><strong>Explored</strong>(a.k.a. Closed List, Visited Set)</li>
+<li><strong>Frontier</strong> (a.k.a. Open List, the Fringe)</li>
+<li><strong>Unexplored</strong></li>
+</ul>
+</li>
+<li>The essence of search is moving nodes from unexplored regions to frontier regions to explored regions.</li>
+<li>The essence of search strategy is deciding the order of such moves.</li>
+</ul>
+<h5 id="2-2-4-Tree-Search-and-Examples-of-Search-Agents"><a href="#2-2-4-Tree-Search-and-Examples-of-Search-Agents" class="headerlink" title="2.2.4 Tree Search and Examples of Search Agents"></a>2.2.4 Tree Search and Examples of Search Agents</h5><ul>
+<li><p><strong>Tree search</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function TREE-SEARCH(initialState, goalTest)</span><br><span class="line">  <span class="keyword">return</span> SUCCESS <span class="keyword">or</span> FAILURE:</span><br><span class="line"></span><br><span class="line">  initialize frontier <span class="keyword">with</span> initialState</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">not</span> frontier.isEmpty():</span><br><span class="line">    state = frontier.remove()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> goalTest(state):</span><br><span class="line">      <span class="keyword">return</span> SUCCESS(state)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> neighbor <span class="keyword">in</span> state.neighbors():</span><br><span class="line">      frontier.add(neighbor)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> FAILURE</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Handle repeated states by <strong>graph search</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function GRAPH-SEARCH(initialState, goalTest)</span><br><span class="line">  <span class="keyword">return</span> SUCCESS <span class="keyword">or</span> FAILURE:</span><br><span class="line"></span><br><span class="line">  initialize frontier <span class="keyword">with</span> initialState</span><br><span class="line">  explored = Set.new()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> <span class="keyword">not</span> frontier.isEmpty():</span><br><span class="line">    state = frontier.remove()</span><br><span class="line">    explored.add(state)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> goalTest(state):</span><br><span class="line">      <span class="keyword">return</span> SUCCESS(state)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> neighbor <span class="keyword">in</span> state.neighbors():</span><br><span class="line">      <span class="keyword">if</span> neighbor <span class="keyword">not</span> <span class="keyword">in</span> frontier ∪ explored:</span><br><span class="line">        frontier.add(neighbor)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> FAILURE</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>Search strategies: the order of node expansion.</li>
+<li>Dimensions to evaluate strategies:<ul>
+<li>Completeness 完备性</li>
+<li>Time complexity 时间复杂度</li>
+<li>Space complexity 空间复杂度</li>
+<li>Optimality 最优性</li>
+</ul>
+</li>
+<li>Time and space complexity are measured in terms of:<ul>
+<li>b: maximum branching factor 分支因子，任何节点的最多后继数</li>
+<li>d: depth 目标节点所在的最浅深度</li>
+<li>m: maximum depth of the state space 状态空间中任何路径的最大长度</li>
+</ul>
+</li>
+</ul>
+<hr>
 <hr>
 
     </div>
@@ -477,8 +567,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/04/05/Svenska/" rel="prev" title="Svenska">
-      <i class="fa fa-chevron-left"></i> Svenska
+    <a href="/2020/03/29/Java-Programming-Solving-Problems-with-Software/" rel="prev" title="Java Programming: Solving Problems with Software">
+      <i class="fa fa-chevron-left"></i> Java Programming: Solving Problems with Software
     </a></div>
       <div class="post-nav-item"></div>
     </div>
@@ -540,7 +630,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction-to-AI"><span class="nav-text">1. Introduction to AI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Overview-of-AI"><span class="nav-text">1.1 Overview of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Applications-of-AI"><span class="nav-text">1.2 Applications of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-AI-Foundation-and-History"><span class="nav-text">1.3 AI Foundation and History</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intelligent-Agents"><span class="nav-text">2. Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Intelligent-Agents"><span class="nav-text">2.1 Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-Definition"><span class="nav-text">2.1.1 Definition</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-“PEAS”"><span class="nav-text">2.1.2 “PEAS”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-3-Environment-types"><span class="nav-text">2.1.3 Environment types</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Types-of-Intelligent-Agents"><span class="nav-text">2.2 Types of Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-Types-of-Intelligent-Agents"><span class="nav-text">2.2.1 Types of Intelligent Agents</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-Agents-Organization"><span class="nav-text">2.2.2 Agents Organization</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Introduction-to-AI"><span class="nav-text">1. Introduction to AI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-Overview-of-AI"><span class="nav-text">1.1 Overview of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-Applications-of-AI"><span class="nav-text">1.2 Applications of AI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-AI-Foundation-and-History"><span class="nav-text">1.3 AI Foundation and History</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Intelligent-Agents-and-Uniformed-Search"><span class="nav-text">2. Intelligent Agents and Uniformed Search</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-Intelligent-Agents"><span class="nav-text">2.1 Intelligent Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-Intelligent-Agents"><span class="nav-text">2.1.1 Intelligent Agents</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-Types-of-Intelligent-Agents"><span class="nav-text">2.1.2 Types of Intelligent Agents</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-Search-Agents"><span class="nav-text">2.2 Search Agents</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-Search-Agents"><span class="nav-text">2.2.1 Search Agents</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-Examples-of-Problem-Formulation"><span class="nav-text">2.2.2 Examples of Problem Formulation</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-3-State-Space-vs-Search-Space"><span class="nav-text">2.2.3 State Space vs. Search Space</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-4-Tree-Search-and-Examples-of-Search-Agents"><span class="nav-text">2.2.4 Tree Search and Examples of Search Agents</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -556,20 +646,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
